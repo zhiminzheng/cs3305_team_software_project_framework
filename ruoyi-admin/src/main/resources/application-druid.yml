@@ -1,0 +1,61 @@
+# Datasource Configuration
+spring:
+    datasource:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driverClassName: com.mysql.cj.jdbc.Driver
+        druid:
+            # Master Datasource
+            master:
+                url: jdbc:mysql://localhost:3306/ry-vue?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+                username: root
+                password: root
+            # Slave Datasource
+            slave:
+                # Slave Datasource Switch/Default Off
+                enabled: false
+                url: 
+                username: 
+                password: 
+            # Initial Connection Count
+            initialSize: 5
+            # Minimum Connection Pool Size
+            minIdle: 10
+            # Maximum Connection Pool Size
+            maxActive: 20
+            # Configure Connection Wait Timeout
+            maxWait: 60000
+            # Configure Connection Timeout
+            connectTimeout: 30000
+            # Configure Network Timeout
+            socketTimeout: 60000
+            # Configure Interval for Idle Connection Check, in milliseconds
+            timeBetweenEvictionRunsMillis: 60000
+            # Configure Minimum Connection Lifetime in Pool, in milliseconds
+            minEvictableIdleTimeMillis: 300000
+            # Configure Maximum Connection Lifetime in Pool, in milliseconds
+            maxEvictableIdleTimeMillis: 900000
+            # Configure Connection Validation
+            validationQuery: SELECT 1 FROM DUAL
+            testWhileIdle: true
+            testOnBorrow: false
+            testOnReturn: false
+            webStatFilter: 
+                enabled: true
+            statViewServlet:
+                enabled: true
+                # Set Whitelist, leave empty to allow all access
+                allow:
+                url-pattern: /druid/*
+                # Console Management Username and Password
+                login-username: ruoyi
+                login-password: 123456
+            filter:
+                stat:
+                    enabled: true
+                    # Slow SQL Logging
+                    log-slow-sql: true
+                    slow-sql-millis: 1000
+                    merge-sql: true
+                wall:
+                    config:
+                        multi-statement-allow: true

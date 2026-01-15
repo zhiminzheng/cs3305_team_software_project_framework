@@ -61,6 +61,12 @@
             <artifactId>ruoyi-generator</artifactId>
         </dependency>
 
+        <!-- cs3305-team6 -->
+        <dependency>
+            <groupId>com.ruoyi</groupId>
+            <artifactId>cs3305-team6</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>

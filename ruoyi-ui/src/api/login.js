@@ -58,3 +58,32 @@ export function getCodeImg() {
     timeout: 20000
   })
 }
+
+//login by phone
+export function mobileLogin(phone,code){
+  const data={
+    phone,
+    code
+  }
+  return request({
+    url:'/member/login/mobile',
+    headers:{
+      isToken: false,
+      repeatSubmit: false
+    },
+    method:'post',
+    data:data
+  })
+}
+
+//send Sms Verification Code
+export function sendSmsCode(phone){
+  return request({
+    url:'/mobile/sendCode',
+    headers:{
+      isToken: false
+    },
+    method:'post',
+    data:{phone}
+  })
+}
